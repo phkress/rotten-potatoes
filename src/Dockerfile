@@ -1,6 +1,6 @@
 FROM python:3.8-slim-buster
 
-WORKDIR /usr/app
+WORKDIR /app
 
 COPY requirements.txt .
 
@@ -10,4 +10,4 @@ COPY . /app
 
 EXPOSE 5000
 
-CMD ["guinicorn", "--workers=3", "--bind", "0.0.0.0:5000", "-c", "config.py", "app:app"]
+CMD ["gunicorn", "--workers=3", "--bind", "0.0.0.0:5000", "-c", "config.py", "app:app"]
